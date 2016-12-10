@@ -121,7 +121,7 @@ this area of the Google Cloud Platform for you.
 
 ### Step 2
 
-_Click on first icon to the right of the search area in the blue bar. If you hover over this
+_Click on first icon to the right of the search area in the blue bar_. If you hover over this
 icon you will see the hint Activate Google Cloud Shell. _Click this icon_ and notice a terminal
 is opened at the bottom of the browser window.
 
@@ -145,3 +145,19 @@ in the upper right hand corner of this terminal browser window and select _Chang
 Enter _student_ and _click Change_. Now notice the prompt that says "student@lab:~$"
 
 You now have a working computer for conducting all class work for the DevOps Practioner course.
+
+## Stopping your lab computer
+
+You will want to stop the lab computer at the end of each day to prevent it from accumulating
+costs during the evening and night.
+
+### Step 1
+
+From the Google Cloud Shell window type the following:
+
+gcloud compute instances top lab
+
+Or from the Web UI you can navigate to the Compute Engine section and select you lab computer. When it
+is selected click on the icon representing the "Stop" operation.
+
+
