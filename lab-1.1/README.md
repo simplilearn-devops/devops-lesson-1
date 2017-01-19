@@ -9,6 +9,9 @@ In this lab you sign up for the Google Cloud free trail. To confirm your identit
 you must have a credit card or debit card (a pre-paid credit card will not work)
 to register for the free trial.
 
+Note that Goggle may debit $1 from your card for validation purposes. If
+the do this it will be refunded immediately.
+
 
 ### What you need
 
@@ -127,17 +130,70 @@ is opened at the bottom of the browser window.
 
 ### Step 3
 
-In the Google Cloud Shell window wait until you see the prompt displayed. Then click into this
-area and type the following:
+In the Google Cloud Shell window wait until you see the prompt displayed. 
 
-gcloud compute instances create lab --machine-type n1-standard-2 --zone us-central1-b --image debian-8-student-gui-v20161130 --image-project simplilearn-devops
+We are going to copy an image from a bucket. We first need to create a bucket.
+We need to create a unique identifier, so type the following command replacing
+xyz with your initailas and replacing 20170119 with todays's date.  
+`gsutil mb gs://devops-xyz-20170119`  
+
+Now we need to copy files from a bucket in another project to the new bucket.
+Type the following command again substituting your initials and today's date.
+This can take a few minutes.  
+`gsutil cp gs://simplilearn-devops-image/* gs://devops-xyz-20170119/`  
+
+Verify that the copy worked, again substituting your initials and today's
+date.  
+`gsutil ls`  
+`gsutil ls gs://devops-xyz-20170119/`  
+
+Close the shell.  
+`exit`
 
 ### Step 4
 
-Close the Google Cloud Shell window and refresh the browser page so that you see an entry
-for your lab computer.
+Select _Images_ from the left column. A list of images will appear.  
 
-### Step 5 
+We need to create an image to create a computer. Select _CREATE IMAGE_ at
+the top of the page.
+Enter Name `student-image`  
+Leave Family and Description blank.  
+Change Source to _Cloud Storage file_  
+Hit _Browse_ and you will see your bucket. SHit the arrow to the right of
+the bucket and you will see the two files. Select the latest one ending
+`20170108.tar.gz`.  
+Hit _Select_.
+
+Now create an image from the file by hitting _Create_. It may take a few
+minutes. The new image should appear at the top of the list of images.
+
+### Step 5
+
+We are now going to create a computer from the image.
+
+Select _VM Instances_ from the left hand column.
+Select _Create Instance_.
+
+Give it a Name `lab`  
+Select a Zone near to where you are located.  
+See that it tells you the Effective hourly rate and the estimated monthly
+cost. This cost will barely impact your $300 credit.
+
+Choose how many CPUs and how much memory you want. The default is sufficient.
+Note that more CPUs and more memory increase the cost.
+
+We need to specify a boot disk. Select _Change_. You will see a list of OS
+images. Slect the _Custom images_ tab.
+
+Need to define the _Boot disk type_. Select _SSD persistent disk_ and give
+it a _Size_ of 200. Select _Select_.
+
+Now create it by hitting _Create_ at the bottom of the screen. It will take
+aa few minutes.
+
+You should see the VM Instance. Note that it is running.
+
+### Step 6 
 
 _Click the SSH button_ at the right hand side of the line of information about your new lab computer.
 This will open a new browser window with a termain connection. Find the icon that looks like a gear
@@ -146,18 +202,34 @@ Enter _student_ and _click Change_. Now notice the prompt that says "student@lab
 
 You now have a working computer for conducting all class work for the DevOps Practioner course.
 
-## Stopping your lab computer
+See what is install. Explore the machine.  
+`ls -l`  
+
+### Step 7
+
+We will need the build tool Maven for later exercises. We will now install
+Maven. We need to be root, so we will use `sudo`.  
+`sudo apt-get install maven`  
+You will see a long list of dependencies.  
+Enter `Y` to accept them.
+
+Maven will get installed.
+
+Check the versions of Java and Maven which are installed.  
+`java -version`  
+`mvn -v`  
+
+### Step 8
+
+Stopping your lab computer.
+
+Close the SSH window.  
+`exit`
 
 You will want to stop the lab computer at the end of each day to prevent it from accumulating
 costs during the evening and night.
 
-### Step 1
-
-From the Google Cloud Shell window type the following:
-
-gcloud compute instances top lab
-
-Or from the Web UI you can navigate to the Compute Engine section and select you lab computer. When it
+From the Web UI you can navigate to the Compute Engine section and select your lab computer. When it
 is selected click on the icon representing the "Stop" operation.
 
 
