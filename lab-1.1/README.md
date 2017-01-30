@@ -134,7 +134,7 @@ In the Google Cloud Shell window wait until you see the prompt displayed.
 
 We are going to copy an image from a bucket. We first need to create a bucket.
 We need to create a unique identifier, so type the following command replacing
-xyz with your initailas and replacing 20170119 with todays's date.  
+xyz with your initials and replacing 20170119 with todays's date.  
 `gsutil mb gs://devops-xyz-20170119`  
 
 Now we need to copy files from a bucket in another project to the new bucket.
@@ -159,7 +159,7 @@ the top of the page.
 Enter Name `student-image`  
 Leave Family and Description blank.  
 Change Source to _Cloud Storage file_  
-Hit _Browse_ and you will see your bucket. SHit the arrow to the right of
+Hit _Browse_ and you will see your bucket. Hit the arrow to the right of
 the bucket and you will see the two files. Select the latest one ending
 `20170108.tar.gz`.  
 Hit _Select_.
@@ -183,7 +183,7 @@ Choose how many CPUs and how much memory you want. The default is sufficient.
 Note that more CPUs and more memory increase the cost.
 
 We need to specify a boot disk. Select _Change_. You will see a list of OS
-images. Slect the _Custom images_ tab.
+images. Select the _Custom images_ tab.
 
 Need to define the _Boot disk type_. Select _SSD persistent disk_ and give
 it a _Size_ of 200. Select _Select_.
@@ -196,11 +196,11 @@ You should see the VM Instance. Note that it is running.
 ### Step 6 
 
 _Click the SSH button_ at the right hand side of the line of information about your new lab computer.
-This will open a new browser window with a termain connection. Find the icon that looks like a gear
+This will open a new browser window with a terminal connection. Find the icon that looks like a gear
 in the upper right hand corner of this terminal browser window and select _Change Linux User Name_.
 Enter _student_ and _click Change_. Now notice the prompt that says "student@lab:~$"
 
-You now have a working computer for conducting all class work for the DevOps Practioner course.
+You now have a working computer for conducting all class work for the DevOps Practitioner course.
 
 See what is install. Explore the machine.  
 `ls -l`  
