@@ -10,7 +10,7 @@ you must have a credit card or debit card (a pre-paid credit card will not work)
 to register for the free trial.
 
 Note that Goggle may debit $1 from your card for validation purposes. If
-the do this it will be refunded immediately.
+they do this it will be refunded immediately.
 
 
 ### What you need
@@ -209,6 +209,7 @@ See what is install. Explore the machine.
 
 We will need the build tool Maven for later exercises. We will now install
 Maven. We need to be root, so we will use `sudo`.  
+`sudo apt-get update`  
 `sudo apt-get install maven`  
 You will see a long list of dependencies.  
 Enter `Y` to accept them.
