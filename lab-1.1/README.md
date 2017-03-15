@@ -39,7 +39,7 @@ In this lab you register for the Google Cloud Platform free trial. The free tria
 
 * $300 Credit for Free
 
-Sign up and get $300 to spend on Google Cloud Platform over the next 60 days and discover the power of the GCP products.
+Sign up and get $300 to spend on Google Cloud Platform over the next year and discover the power of the GCP products.
 
 * You will not be billed
  
@@ -140,7 +140,7 @@ xyz with your initials and replacing 20170119 with todays's date.
 Now we need to copy files from a bucket in another project to the new bucket.
 Type the following command again substituting your initials and today's date.
 This can take a few minutes.  
-`gsutil cp gs://simplilearn-devops-image/* gs://devops-xyz-20170119/`  
+`gsutil cp gs://simplilearn-devops-image/*2017*gz gs://devops-xyz-20170119/`  
 
 Verify that the copy worked, again substituting your initials and today's
 date.  
