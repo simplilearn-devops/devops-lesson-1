@@ -160,8 +160,7 @@ Enter Name `student-image`
 Leave Family and Description blank.  
 Change Source to _Cloud Storage file_  
 Hit _Browse_ and you will see your bucket. Hit the arrow to the right of
-the bucket and you will see the two files. Select the latest one ending
-`20170108.tar.gz`.  
+the bucket and you will see the file you copied. Select the file.  
 Hit _Select_.
 
 Now create an image from the file by hitting _Create_. It may take a few
