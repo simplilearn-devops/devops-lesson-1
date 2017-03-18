@@ -44,7 +44,20 @@ Find out which network services are running. Port 22 is SSH.
 
 ### Step 4
 
-We need to change the Docker startup script so that it listens on TCP port
+We are going to use _ping_ to test connectivity. It actually sends an ICMP echo request
+and receives an ICMP echo response.  
+`ping www.redhat.com`  
+
+The program _traceroute_ can determine which routers a packet goes through from one
+IP address to another. Each packet has a time to live (TTL). Each time a packet goes through
+a router the TTL is decreased. When the TTL reaches zero the router drops the packet and returns an ICMP Time Exceeded packet. If _traceroute_ has rows with * symbols it means
+that the router didn't send the time exceeded message.  
+`traceroute www.redhat.com`   
+
+### Step 5
+
+We will be using Docker as a container manager through the course. By default Docker
+uses a UNIX socket. We need it to listen on a TCP/IP port. We need to change the Docker startup script so that it listens on TCP port
 2375.  
 `sudo vi /etc/systemd/system/multi*/docker.service`  
 Add a second -H switch the the ExecStart line so that it reads:  
@@ -56,7 +69,7 @@ Restart Docker.
 Check that there is a listener on port 2375:  
 `netstat -an | grep 2375`  
 
-### Step 5
+### Step 6
 
 Telnet is an old tool for opening remote terminal sessions. It is no longer used in
 favour of SSH. However, telnet can communicate on any network port. It is now a _vital_
@@ -73,7 +86,7 @@ You should see a response from Docker.
 Exit telnet by typing control-] followed by quit.  
 
 
-### Step 6
+### Step 7
 
 Stopping your lab computer.
 
